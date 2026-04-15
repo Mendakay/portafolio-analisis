@@ -1,0 +1,291 @@
+/* ═══════════════════════════════════════════════════
+   FUENTE GLOBAL & SCROLL
+   ═══════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+.intro-active {
+    overflow: hidden !important;
+}
+
+
+/* ═══════════════════════════════════════════════════
+   MENÚ MÓVIL
+   ═══════════════════════════════════════════════════ */
+#mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+#mobile-menu.open {
+    max-height: 500px;
+}
+
+
+/* ═══════════════════════════════════════════════════
+   NAVEGACIÓN — enlace activo
+   ═══════════════════════════════════════════════════ */
+.nav-link.active {
+    color: #4f46e5;
+    border-bottom-width: 2px;
+    border-color: #4f46e5;
+}
+
+
+/* ═══════════════════════════════════════════════════
+   TARJETAS DE PROYECTO
+   ═══════════════════════════════════════════════════ */
+.project-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Cabeceras de color por proyecto ── */
+.project-card-header {
+    transition: background-color 0.3s ease;
+}
+.project-card-header--rose   { background-color: #fff1f2; } /* rose-50   */
+.project-card-header--amber  { background-color: #fffbeb; } /* amber-50  */
+.project-card-header--purple { background-color: #faf5ff; } /* purple-50 */
+.project-card-header--slate  { background-color: #f8fafc; } /* slate-50  */
+
+/* ── Cajas de icono por proyecto ── */
+.project-card-iconbox--rose   { background-color: #ffe4e6; color: #e11d48; } /* rose-100 / rose-600   */
+.project-card-iconbox--amber  { background-color: #fef3c7; color: #d97706; } /* amber-100 / amber-600 */
+.project-card-iconbox--purple { background-color: #f3e8ff; color: #9333ea; } /* purple-100 / purple-600 */
+.project-card-iconbox--slate  { background-color: #e2e8f0; color: #475569; } /* slate-200 / slate-600 */
+
+/* ── Etiquetas de categoría por proyecto ── */
+.project-card-label--rose   { color: #e11d48; } /* rose-600   */
+.project-card-label--amber  { color: #d97706; } /* amber-600  */
+.project-card-label--purple { color: #9333ea; } /* purple-600 */
+.project-card-label--slate  { color: #64748b; } /* slate-500  */
+
+
+/* ═══════════════════════════════════════════════════
+   CHIPS DE HABILIDADES
+   Los chips con featured=true se renderizan con
+   clases Tailwind directamente desde JS;
+   los estilos de transición se controlan aquí.
+   ═══════════════════════════════════════════════════ */
+.skill-item {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.skill-item.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+/* Micro-interacción al pasar el cursor */
+.skill-item:hover {
+    transform: scale(1.05);
+}
+
+
+/* ═══════════════════════════════════════════════════
+   SECCIÓN SOBRE MÍ
+   ═══════════════════════════════════════════════════ */
+#about-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+#about-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ═══════════════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════════════ */
+#hero {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Stack chips en el hero */
+.hero-stack-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: #fff;
+    border: 1px solid #e0e7ff;
+    color: #4b5563;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.hero-stack-chip:hover {
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.15);
+    transform: translateY(-1px);
+}
+
+
+/* ═══════════════════════════════════════════════════
+   BOTÓN VOLVER ARRIBA
+   ═══════════════════════════════════════════════════ */
+#back-to-top {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+/* ═══════════════════════════════════════════════════
+   ANIMACIONES GLOBALES
+   ═══════════════════════════════════════════════════ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+}
+
+#main-content.opacity-100 {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.section-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efecto de escritura (disponible para usar con clase .typewriter) */
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid #4f46e5;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+    from { width: 0 }
+    to   { width: 100% }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50%      { border-color: #4f46e5; }
+}
+
+
+/* ═══════════════════════════════════════════════════
+   TARJETA "CONOCER MÁS" (Behance CTA)
+   ═══════════════════════════════════════════════════ */
+.more-projects-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    min-height: 280px;
+}
+.more-projects-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+.more-projects-card h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.more-projects-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+.more-projects-card .btn-more {
+    display: inline-flex;
+    align-items: center;
+    background-color: white;
+    color: #667eea;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.more-projects-card .btn-more:hover {
+    background-color: #f9fafb;
+    transform: scale(1.05);
+}
+
+
+/* ═══════════════════════════════════════════════════
+   MODO OSCURO
+   ═══════════════════════════════════════════════════ */
+@media (prefers-color-scheme: dark) {
+    body                { background-color: #1a202c; color: #e2e8f0; }
+    .bg-white           { background-color: #2d3748; }
+    .text-gray-900      { color: #e2e8f0; }
+    .text-gray-700      { color: #cbd5e0; }
+    .text-gray-600      { color: #a0aec0; }
+    .text-gray-500      { color: #718096; }
+    .bg-gray-50         { background-color: #1a202c; }
+    .bg-gray-100        { background-color: #2d3748; }
+    .border-gray-100    { border-color: #4a5568; }
+    .shadow-lg          { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3), 0 4px 6px -2px rgba(0,0,0,0.2); }
+
+    /* Cabeceras de tarjeta en modo oscuro */
+    .project-card-header--rose   { background-color: #3b1a1e; }
+    .project-card-header--amber  { background-color: #3b2e14; }
+    .project-card-header--purple { background-color: #2d1f3d; }
+    .project-card-header--slate  { background-color: #1e2533; }
+
+    .project-card-iconbox--rose   { background-color: #4a1828; color: #fb7185; }
+    .project-card-iconbox--amber  { background-color: #4a3214; color: #fbbf24; }
+    .project-card-iconbox--purple { background-color: #3b1f52; color: #c084fc; }
+    .project-card-iconbox--slate  { background-color: #2d3748; color: #94a3b8; }
+
+    /* Chips de skill en modo oscuro */
+    .skill-item {
+        border-color: #4a5568;
+    }
+
+    /* Hero stack chips en modo oscuro */
+    .hero-stack-chip {
+        background-color: #2d3748;
+        border-color: #4a5568;
+        color: #cbd5e0;
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .project-card  { margin-bottom: 1.5rem; }
+    #hero h1       { font-size: 2.5rem; }
+    #hero p        { font-size: 1.25rem; }
+}

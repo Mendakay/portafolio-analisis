@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             tags: ['Figma', 'UX Research', 'Arquitectura de Info', 'Datos Sensibles'],
             icon: 'database',
-            badgeIcon: 'Web',
+            badgeIcon: 'globe',
             image: 'img/Cattleya.PNG',
             imageAlt: 'Interfaz del proyecto Cattleya',
             accent: {
@@ -401,6 +401,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // ─────────────────────────────────────────────
 
     /**
+     * Lucide eliminó los logos de marca (github, linkedin, figma) de su
+     * set de iconos. Para esos casos se inyecta un <svg> propio en vez
+     * de dejar que lucide.createIcons() los reemplace (deja el <i> vacío).
+     */
+    const BRAND_ICONS = {
+        github: 'M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z',
+        linkedin: 'M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z',
+        figma: 'M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z'
+    };
+
+    /**
+     * Devuelve el marcado de un icono: SVG inline para logos de marca
+     * (ver BRAND_ICONS) o <i data-lucide> para el resto (renderizado
+     * luego por lucide.createIcons()).
+     */
+    function renderIcon(name, cls) {
+        const path = BRAND_ICONS[name];
+        if (path) {
+            return `<svg viewBox="0 0 24 24" class="${cls}" fill="currentColor" aria-hidden="true"><path d="${path}"/></svg>`;
+        }
+        return `<i data-lucide="${name}" class="${cls}"></i>`;
+    }
+
+    /**
      * Genera el HTML de una tarjeta de proyecto.
      * Diseño: cabecera coloreada + icono + descripción + tags + CTA.
      * No usa imágenes; el color de acento identifica cada categoría.
@@ -425,7 +449,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <img src="${project.image}" alt="${project.imageAlt}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t ${project.accent.overlay}"></div>
                     <div class="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full ${project.accent.badgeBg} px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] ${project.accent.badge} backdrop-blur">
-                        <i data-lucide="${project.badgeIcon}" class="w-4 h-4"></i>
+                        ${renderIcon(project.badgeIcon, 'w-4 h-4')}
                         ${project.tags[0]}
                     </div>
                 </div>
@@ -436,7 +460,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <h3 class="mt-2 text-xl font-bold text-slate-900">${project.title}</h3>
                         </div>
                         <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${project.accent.iconWrap}">
-                            <i data-lucide="${project.icon}" class="w-6 h-6"></i>
+                            ${renderIcon(project.icon, 'w-6 h-6')}
                         </span>
                     </div>
                     <p class="text-sm leading-7 text-slate-600">${description}</p>
@@ -447,9 +471,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             <i data-lucide="external-link" class="w-4 h-4"></i>
                             Demo
                         </a>
-                        <a href="${project.codeUrl}" ${hasCode ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}
+                        <a href="${project.codeUrl || '#'}" ${hasCode ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}
                            class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${hasCode ? 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-900 hover:text-white' : 'border-slate-200 bg-slate-100 text-slate-400 cursor-not-allowed'}">
-                            <i data-lucide="github" class="w-4 h-4"></i>
+                            ${renderIcon('github', 'w-4 h-4')}
                             C\u00f3digo
                         </a>
                     </div>
@@ -467,7 +491,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ? 'skill-item inline-flex items-center gap-2 bg-indigo-600 text-white text-sm font-semibold px-5 py-2 rounded-full shadow-md ring-2 ring-indigo-300'
             : 'skill-item inline-flex items-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-5 py-2 rounded-full';
         const iconCls = skill.featured ? 'w-4 h-4' : 'w-4 h-4 text-indigo-400';
-        return `<span class="${cls}"><i data-lucide="${skill.icon}" class="${iconCls}"></i>${skill.label}</span>`;
+        return `<span class="${cls}">${renderIcon(skill.icon, iconCls)}${skill.label}</span>`;
     }
 
     /**
@@ -477,7 +501,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const label = typeof skill.label === 'object' ? skill.label[currentLang] : skill.label;
         return `
             <span class="skill-item inline-flex items-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-5 py-2 rounded-full">
-                <i data-lucide="${skill.icon}" class="w-4 h-4 text-indigo-400"></i>${label}
+                ${renderIcon(skill.icon, 'w-4 h-4 text-indigo-400')}${label}
             </span>`;
     }
 
@@ -628,8 +652,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const githubLinks   = document.querySelectorAll('#link-github, #contact-github');
     const mailLinks     = document.querySelectorAll('#link-mail, #contact-email-btn');
 
-    linkedinLinks.forEach(l => l.href = 'https://linkedin.com/in/guillermo-tovar-ejemplo');
-    githubLinks.forEach(l   => l.href = 'https://github.com/guillermo-tovar-ejemplo');
-    mailLinks.forEach(l     => l.href = 'mailto:guillermo.tovar@ejemplo.com');
+    linkedinLinks.forEach(l => l.href = 'https://www.linkedin.com/in/guillermo-rene-tovar-bele%C3%B1o-87a158294/');
+    githubLinks.forEach(l   => l.href = 'https://github.com/Mendakay');
+    mailLinks.forEach(l     => l.href = 'mailto:guillermorene1234@gmail.com');
 
 });

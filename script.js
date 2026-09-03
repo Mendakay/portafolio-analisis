@@ -292,48 +292,48 @@ document.addEventListener('DOMContentLoaded', function() {
             codeUrl: 'https://github.com/Mendakay/DASHBOARD-DE-AN-LISIS-Y-VISUALIZACI-N-DE-LA-ACCIDENTALIDAD-LABORAL-.git'
         },
         {
-            title: 'Cattleya',
+            title: 'Plataforma Cattleya',
             category: { es: 'UX \u00b7 Arquitectura de Informaci\u00f3n', en: 'UX \u00b7 Information Architecture' },
             description: {
-                es: 'Plataforma web de apoyo social con una arquitectura de informaci\u00f3n dise\u00f1ada para el manejo de datos sensibles y redes de apoyo.',
-                en: 'Social support web platform with an information architecture designed for handling sensitive data and support networks.'
+                es: 'Proyecto grupal de anal\u00edtica social. Mi rol: desarrollo del sitio web (HTML/CSS/JS), limpieza y estandarizaci\u00f3n del dataset, dise\u00f1o del dashboard y definici\u00f3n de la estructura narrativa y distribuci\u00f3n de gr\u00e1ficos del an\u00e1lisis exploratorio.',
+                en: 'Group social analytics project. My role: website development (HTML/CSS/JS), data cleaning and standardization, dashboard design and definition of the narrative structure and chart layout for the exploratory analysis.'
             },
-            tags: ['Figma', 'UX Research', 'Arquitectura de Info', 'Datos Sensibles'],
+            tags: ['HTML/CSS/JS', 'Figma', 'Limpieza de Datos', 'Dashboard', 'UX'],
             icon: 'database',
             badgeIcon: 'globe',
             image: 'img/Cattleya.PNG',
             imageAlt: 'Interfaz del proyecto Cattleya',
             accent: {
-                chip: 'border-fuchsia-100 bg-fuchsia-50 text-fuchsia-700',
-                iconWrap: 'bg-fuchsia-50 text-fuchsia-600 ring-1 ring-fuchsia-100',
-                hover: 'hover:border-fuchsia-200 hover:shadow-[0_24px_70px_rgba(192,38,211,0.16)]',
-                overlay: 'from-slate-950/70 via-slate-900/20 to-fuchsia-300/10',
-                category: 'text-fuchsia-500',
-                badge: 'text-fuchsia-600',
+                chip: 'border-purple-100 bg-purple-50 text-purple-700',
+                iconWrap: 'bg-purple-50 text-purple-600 ring-1 ring-purple-100',
+                hover: 'hover:border-purple-200 hover:shadow-[0_24px_70px_rgba(147,51,234,0.18)]',
+                overlay: 'from-slate-950/70 via-slate-900/20 to-purple-300/10',
+                category: 'text-purple-500',
+                badge: 'text-purple-600',
                 badgeBg: 'bg-white/85'
             },
             demoUrl: 'https://cattleyadata.netlify.app/',
             codeUrl: 'https://github.com/EstebanJimenez2311/Cattleya.git'
         },
         {
-            title: 'Vig\u00eda',
-            category: { es: 'Prototipado \u00b7 Monitoreo', en: 'Prototyping \u00b7 Monitoring' },
+            title: 'Sistema Vig\u00eda',
+            category: { es: 'Prototipado \u00b7 Seguridad Ciudadana', en: 'Prototyping \u00b7 Public Safety' },
             description: {
-                es: 'Red de apoyo a comerciantes dedicada a combatir la extorsi\u00f3n mediante iniciativas de seguridad y canales de reporte integrados.',
-                en: 'Support network for merchants focused on combating extortion through security initiatives and integrated reporting channels.'
+                es: 'Dise\u00f1\u00e9 el prototipo de alta fidelidad en Figma para una app m\u00f3vil de alertas de seguridad ciudadana. Notifica a comerciantes y autoridades sobre posibles hurtos y extorsiones, integrando georreferenciaci\u00f3n de incidentes y alertas en tiempo real.',
+                en: 'Designed the high-fidelity Figma prototype for a public safety mobile app that notifies merchants and authorities about potential theft and extortion, integrating incident georeferencing and real-time alerts.'
             },
-            tags: ['Figma', 'Georreferenciaci\u00f3n', 'Alertas RT', 'Alta Fidelidad'],
+            tags: ['Figma', 'App M\u00f3vil', 'Georreferenciaci\u00f3n', 'Alta Fidelidad'],
             icon: 'shield-alert',
             badgeIcon: 'shield-alert',
             image: 'img/Vigia.jpg',
             imageAlt: 'Interfaz del sistema Vig\u00eda',
             accent: {
-                chip: 'border-sky-100 bg-sky-50 text-sky-700',
-                iconWrap: 'bg-sky-50 text-sky-600 ring-1 ring-sky-100',
-                hover: 'hover:border-sky-200 hover:shadow-[0_24px_70px_rgba(14,165,233,0.18)]',
-                overlay: 'from-slate-950/70 via-slate-900/20 to-sky-300/10',
-                category: 'text-sky-500',
-                badge: 'text-sky-600',
+                chip: 'border-slate-200 bg-slate-50 text-slate-700',
+                iconWrap: 'bg-slate-100 text-slate-600 ring-1 ring-slate-200',
+                hover: 'hover:border-slate-300 hover:shadow-[0_24px_70px_rgba(71,85,105,0.18)]',
+                overlay: 'from-slate-950/70 via-slate-900/20 to-slate-300/10',
+                category: 'text-slate-500',
+                badge: 'text-slate-600',
                 badgeBg: 'bg-white/85'
             },
             demoUrl: 'https://vigiadatainsights.netlify.app/',
@@ -652,8 +652,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const githubLinks   = document.querySelectorAll('#link-github, #contact-github');
     const mailLinks     = document.querySelectorAll('#link-mail, #contact-email-btn');
 
-    linkedinLinks.forEach(l => l.href = 'https://www.linkedin.com/in/guillermo-rene-tovar-bele%C3%B1o-87a158294/');
+    linkedinLinks.forEach(l => l.href = 'https://www.linkedin.com/in/guillermo-rene-tovar-beleño-87a158294');
     githubLinks.forEach(l   => l.href = 'https://github.com/Mendakay');
-    mailLinks.forEach(l     => l.href = 'mailto:guillermorene1234@gmail.com');
+    mailLinks.forEach(l     => l.href = 'mailto:guillermorenetovar@gmail.com');
 
 });

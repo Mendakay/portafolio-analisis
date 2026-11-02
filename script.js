@@ -338,6 +338,30 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             demoUrl: 'https://vigiadatainsights.netlify.app/',
             codeUrl: ''
+        },
+        {
+            title: 'El Centinela de Datos',
+            category: { es: 'Ingeniería de Datos · Calidad de Datos', en: 'Data Engineering · Data Quality' },
+            description: {
+                es: 'Pipeline automático que lee Excels desordenados (fechas mixtas, duplicados, montos negativos), los limpia y valida con reglas de calidad configurables. Aparta lo erróneo, carga lo válido en PostgreSQL con restricciones y avisa por Discord con tarjeta verde o roja. Incluye logs, vistas analíticas y ejecución diaria opcional.',
+                en: 'Automated pipeline that reads messy Excel files (mixed dates, duplicates, negative amounts), cleans and validates them with configurable quality rules, sets aside bad rows, loads valid data into PostgreSQL with constraints, and reports via Discord (green or red card). Includes logging, analytics views, and optional daily scheduling.'
+            },
+            tags: ['Python', 'pandas', 'PostgreSQL', 'SQLAlchemy', 'Discord'],
+            icon: 'shield-check',
+            badgeIcon: 'database',
+            image: 'img/Portada Centinela.png',
+            imageAlt: 'Portada del proyecto El Centinela de Datos',
+            accent: {
+                chip: 'border-emerald-100 bg-emerald-50 text-emerald-700',
+                iconWrap: 'bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100',
+                hover: 'hover:border-emerald-200 hover:shadow-[0_24px_70px_rgba(16,185,129,0.18)]',
+                overlay: 'from-slate-950/70 via-slate-900/20 to-emerald-300/10',
+                category: 'text-emerald-500',
+                badge: 'text-emerald-600',
+                badgeBg: 'bg-white/85'
+            },
+            demoUrl: '',
+            codeUrl: 'https://github.com/Mendakay/Centinela-de-Datos.git'
         }
     ];
 
@@ -445,19 +469,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         return `
             <article class="project-card group overflow-hidden rounded-[28px] border border-white/60 bg-white/70 shadow-[0_12px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 ${project.accent.hover}">
-                <div class="relative h-56 overflow-hidden rounded-t-[28px]">
-                    <img src="${project.image}" alt="${project.imageAlt}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="relative h-44 sm:h-52 lg:h-56 overflow-hidden rounded-t-[28px]">
+                    <img src="${project.image}" alt="${project.imageAlt}" loading="lazy" decoding="async" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-gradient-to-t ${project.accent.overlay}"></div>
-                    <div class="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full ${project.accent.badgeBg} px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] ${project.accent.badge} backdrop-blur">
+                    <div class="absolute left-4 top-4 sm:left-5 sm:top-5 inline-flex max-w-[80%] items-center gap-2 rounded-full ${project.accent.badgeBg} px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] sm:tracking-[0.2em] ${project.accent.badge} backdrop-blur">
                         ${renderIcon(project.badgeIcon, 'w-4 h-4')}
                         ${project.tags[0]}
                     </div>
                 </div>
-                <div class="p-6 flex flex-col gap-5">
-                    <div class="flex items-start justify-between gap-4">
-                        <div>
-                            <p class="text-xs font-semibold uppercase tracking-[0.22em] ${project.accent.category}">${category}</p>
-                            <h3 class="mt-2 text-xl font-bold text-slate-900">${project.title}</h3>
+                <div class="p-5 sm:p-6 flex flex-col gap-4 sm:gap-5">
+                    <div class="flex items-start justify-between gap-3 sm:gap-4">
+                        <div class="min-w-0">
+                            <p class="text-xs font-semibold uppercase tracking-[0.14em] sm:tracking-[0.22em] ${project.accent.category}">${category}</p>
+                            <h3 class="mt-2 text-lg sm:text-xl font-bold text-slate-900 break-words">${project.title}</h3>
                         </div>
                         <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${project.accent.iconWrap}">
                             ${renderIcon(project.icon, 'w-6 h-6')}
@@ -465,7 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <p class="text-sm leading-7 text-slate-600">${description}</p>
                     <div class="flex flex-wrap gap-2">${tags}</div>
-                    <div class="flex items-center gap-3 pt-2">
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
                         <a href="${project.demoUrl}" ${hasDemo ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true" tabindex="-1"'}
                            class="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${hasDemo ? 'border-slate-200 bg-white text-slate-700 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-700' : 'border-slate-200 bg-slate-100 text-slate-400 cursor-not-allowed'}">
                             <i data-lucide="external-link" class="w-4 h-4"></i>
@@ -488,8 +512,8 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function createTechSkillItem(skill) {
         const cls = skill.featured
-            ? 'skill-item inline-flex items-center gap-2 bg-indigo-600 text-white text-sm font-semibold px-5 py-2 rounded-full shadow-md ring-2 ring-indigo-300'
-            : 'skill-item inline-flex items-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-5 py-2 rounded-full';
+            ? 'skill-item inline-flex items-center gap-2 bg-indigo-600 text-white text-sm font-semibold px-4 sm:px-5 py-2 rounded-full shadow-md ring-2 ring-indigo-300'
+            : 'skill-item inline-flex items-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-4 sm:px-5 py-2 rounded-full';
         const iconCls = skill.featured ? 'w-4 h-4' : 'w-4 h-4 text-indigo-400';
         return `<span class="${cls}">${renderIcon(skill.icon, iconCls)}${skill.label}</span>`;
     }
@@ -500,7 +524,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function createSoftSkillItem(skill) {
         const label = typeof skill.label === 'object' ? skill.label[currentLang] : skill.label;
         return `
-            <span class="skill-item inline-flex items-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-5 py-2 rounded-full">
+            <span class="skill-item inline-flex items-center gap-2 bg-gray-100 text-gray-700 text-sm font-medium px-4 sm:px-5 py-2 rounded-full">
                 ${renderIcon(skill.icon, 'w-4 h-4 text-indigo-400')}${label}
             </span>`;
     }

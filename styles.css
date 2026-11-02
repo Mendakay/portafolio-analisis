@@ -284,8 +284,76 @@ body {
 /* ═══════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════ */
+/* Base: evita desbordes horizontales y ajustes de texto en iOS */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+img { max-width: 100%; height: auto; }
+
+/* Hero a pantalla completa respetando barras dinámicas del navegador móvil */
+.hero-section {
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+/* La intro cubre toda la pantalla real en móviles */
+#cinematic-intro {
+    height: 100vh;
+    height: 100dvh;
+}
+
+/* Menú móvil: nunca más alto que la pantalla, con scroll interno */
+#mobile-menu.open {
+    max-height: calc(100vh - 4rem);
+    max-height: calc(100dvh - 4rem);
+    overflow-y: auto;
+}
+
+/* Botón "volver arriba": respeta el notch / barra home */
+#back-to-top {
+    margin-bottom: env(safe-area-inset-bottom, 0);
+    margin-right: env(safe-area-inset-right, 0);
+}
+
+/* Cuadrícula de 2 columnas con número impar de tarjetas:
+   la última se centra en su propia fila en vez de quedar huérfana */
+@media (min-width: 768px) {
+    #projects-grid > article:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 0.75rem);
+    }
+}
+
+/* Tablets y móviles */
+@media (max-width: 1024px) {
+    /* background-attachment: fixed falla en iOS/Android */
+    #hero { background-attachment: scroll; }
+}
+
 @media (max-width: 768px) {
     .project-card  { margin-bottom: 1.5rem; }
-    #hero h1       { font-size: 2.5rem; }
-    #hero p        { font-size: 1.25rem; }
+}
+
+/* Pantallas muy pequeñas (≤ 360px) */
+@media (max-width: 360px) {
+    .skill-item { font-size: 0.8125rem; }
+}
+
+/* En táctiles no se simulan hovers que "se quedan pegados" */
+@media (hover: none) {
+    .skill-item:hover,
+    .hero-stack-chip:hover,
+    .more-projects-card:hover { transform: none; }
+}
+
+/* Respeta usuarios con movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

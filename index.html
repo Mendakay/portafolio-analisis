@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Guillermo Tovar - Portafolio Profesional</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,18 +27,18 @@
     <link rel="stylesheet" href="styles.css">
 
 </head>
-<body class="bg-gray-50 smooth-scroll intro-active">
+<body class="bg-gray-50 smooth-scroll intro-active overflow-x-hidden">
 
     <div id="cinematic-intro"
         class="fixed inset-0 z-[100] flex items-center justify-center bg-gray-900 text-white cursor-pointer transition-opacity duration-700 opacity-100"
         aria-live="polite">
-        <div class="text-center p-8 max-w-4xl transform transition-transform duration-700 delay-300">
+        <div class="text-center p-6 sm:p-8 max-w-4xl transform transition-transform duration-700 delay-300">
             <h1 data-i18n="welcomeTitle"
-                class="text-4xl sm:text-6xl md:text-7xl font-light tracking-wide mb-4 text-indigo-400">
+                class="text-3xl min-[400px]:text-4xl sm:text-6xl md:text-7xl font-light tracking-wide mb-4 text-indigo-400 break-words">
                 Bienvenido a mi Portafolio
             </h1>
             <p data-i18n="welcomeSubtitle"
-                class="text-lg sm:text-xl md:text-2xl font-extralight text-gray-400 mb-12">
+                class="text-base sm:text-xl md:text-2xl font-extralight text-gray-400 mb-8 sm:mb-12">
                 Explora mis proyectos y experiencia profesional.
             </p>
 
@@ -82,12 +82,12 @@
 
                 <div class="flex items-center md:hidden space-x-2">
                     <button id="lang-toggle-mobile"
-                        class="p-2 rounded-md text-gray-500 hover:text-indigo-600 hover:bg-gray-100 transition duration-150"
+                        class="p-2.5 rounded-md text-gray-500 hover:text-indigo-600 hover:bg-gray-100 transition duration-150"
                         aria-label="Cambiar idioma">
                         <i data-lucide="globe" class="w-6 h-6"></i>
                     </button>
                     <button id="mobile-menu-button"
-                        class="p-2 rounded-md text-gray-500 hover:text-indigo-600 hover:bg-gray-100 transition duration-150"
+                        class="p-2.5 rounded-md text-gray-500 hover:text-indigo-600 hover:bg-gray-100 transition duration-150"
                         aria-label="Abrir menú">
                         <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
                         <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
@@ -137,22 +137,22 @@
     <!-- ═══════════════════════════════════════════
          HERO — Analista de Datos Junior
     ═══════════════════════════════════════════ -->
-    <section id="hero" class="min-h-screen flex items-center bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section id="hero" class="hero-section flex items-center bg-gray-50">
+        <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
             <div class="text-center">
 
                 <!-- Etiqueta de rol sobre el nombre -->
-                <span class="inline-block bg-indigo-50 text-indigo-600 text-sm font-semibold tracking-widest uppercase px-4 py-1 rounded-full mb-6">
+                <span class="inline-block bg-indigo-50 text-indigo-600 text-xs sm:text-sm font-semibold tracking-wider sm:tracking-widest uppercase px-4 py-1 rounded-full mb-6">
                     Analista de Datos Junior
                 </span>
 
-                <h1 class="text-4xl sm:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
+                <h1 class="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4 break-words">
                     <span data-i18n="nav.heroPrefix">Hola, soy</span>
                     <span id="hero-name" class="text-indigo-600"> Guillermo Tovar</span>
                 </h1>
 
                 <p id="hero-role"
-                   class="text-xl sm:text-2xl text-gray-600 mb-4 font-light"
+                   class="text-lg sm:text-2xl text-gray-600 mb-4 font-light"
                    data-i18n="role">
                     Analista de Datos Junior 
                 </p>
@@ -210,9 +210,9 @@
     <!-- ═══════════════════════════════════════════
          PROYECTOS — 4 casos de analítica
     ═══════════════════════════════════════════ -->
-   <section id="projects" class="relative overflow-hidden py-20 bg-gradient-to-b from-slate-50 via-white to-indigo-50/40">
+   <section id="projects" class="relative overflow-hidden py-14 sm:py-20 bg-gradient-to-b from-slate-50 via-white to-indigo-50/40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center mb-14">
+        <div class="max-w-3xl mx-auto text-center mb-10 sm:mb-14">
             <span class="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-indigo-700 shadow-sm backdrop-blur">
                 <i data-lucide="briefcase" class="w-4 h-4"></i>
                 Portafolio
@@ -225,7 +225,7 @@
             </p>
         </div>
 
-        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             <!-- Proyecto 1 -->
             <article class="group overflow-hidden rounded-[28px] border border-white/60 bg-white/70 shadow-[0_12px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-rose-200 hover:shadow-[0_24px_70px_rgba(244,63,94,0.18)]">
                 <div class="relative h-56 overflow-hidden rounded-t-[28px]">
@@ -425,16 +425,16 @@
     <!-- ═══════════════════════════════════════════
          SOBRE MÍ — Foco en insights y sectores
     ═══════════════════════════════════════════ -->
-    <section id="about" class="py-20 bg-gray-50">
+    <section id="about" class="py-14 sm:py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 data-i18n="aboutTitle"
                 class="text-3xl font-extrabold text-gray-900 sm:text-4xl text-center mb-12">
                 <i data-lucide="user" class="w-8 h-8 inline-block text-indigo-600 mr-2"></i>
                 Sobre Mí
             </h2>
-            <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+            <div class="max-w-3xl mx-auto bg-white p-5 sm:p-8 rounded-xl shadow-lg border border-gray-100">
                 <p id="about-content"
-                   class="text-lg text-gray-700 leading-relaxed"
+                   class="text-base sm:text-lg text-gray-700 leading-relaxed"
                    data-i18n="about">
                     Soy Analista de Datos Junior con enfoque en <strong class="text-indigo-600">extraer insights accionables</strong> a partir de datos complejos. Mi trabajo se concentra en dos sectores donde la precisión analítica tiene impacto directo en la vida de las personas: <strong class="text-gray-800">salud pública</strong> y <strong class="text-gray-800">logística</strong>. Combino análisis exploratorio en RStudio y Python, visualización en Power BI, y diseño de sistemas de información en Figma para construir soluciones que <strong class="text-indigo-600">optimizan procesos y apoyan la toma de decisiones basada en evidencia</strong>.
                 </p>
@@ -446,7 +446,7 @@
     <!-- ═══════════════════════════════════════════
          HABILIDADES — Stack de analítica de datos
     ═══════════════════════════════════════════ -->
-    <section id="skills" class="py-20 bg-white">
+    <section id="skills" class="py-14 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <h2 data-i18n="skillsTitle"
@@ -532,7 +532,7 @@
     <!-- ═══════════════════════════════════════════
          CONTACTO (sin cambios)
     ═══════════════════════════════════════════ -->
-    <section id="contact" class="py-20 bg-gray-50">
+    <section id="contact" class="py-14 sm:py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 data-i18n="contactTitle"
                 class="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-6">
@@ -540,7 +540,7 @@
                 ¡Hablemos!
             </h2>
             <p id="contact-text"
-                class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+                class="text-base sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
         data-i18n="contactText">
                 ¿Tienes una oportunidad de trabajo, una idea de proyecto o simplemente quieres saludar? No dudes en contactarme.
             </p>
@@ -569,7 +569,7 @@
  FOOTER
     ═══════════════════════════════════════════ -->
     <footer class="bg-gray-800 text-white py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs sm:text-sm leading-relaxed">
             <p id="footer-text">
                 &copy; <span id="current-year">2025</span>
                 <span data-i18n="name">Guillermo Tovar</span> · Analista de Datos Junior
@@ -580,7 +580,7 @@
 
     <!-- Botón volver arriba -->
     <button id="back-to-top" onclick="scrollToSection('hero')"
-        class="fixed bottom-6 right-6 p-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 transition duration-300 z-50 transform hover:scale-110 opacity-0 pointer-events-none"
+        class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 p-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 transition duration-300 z-50 transform hover:scale-110 opacity-0 pointer-events-none"
         aria-label="Volver arriba">
         <i data-lucide="chevron-up" class="w-6 h-6"></i>
     </button>
